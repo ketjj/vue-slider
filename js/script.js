@@ -40,9 +40,12 @@ const app = new Vue({
             }
         ],
 
+        
         counterPhoto: 0,
-      
+        activeSelect: true
     },
+    
+
 
     methods: {
         nextPhoto(){
@@ -58,7 +61,6 @@ const app = new Vue({
             }
         }
        
-
     }
 
 

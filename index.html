@@ -33,9 +33,10 @@
                     <div @click="previousPhoto()" class="prev"></div>
                     <div @click="nextPhoto()" class="next"></div>
 
-                    <div class="thumb active">
-                        <img :src="slides[0].image" alt="Svezia"/>
-                    </div>
+
+                    <div v-for="sidephotoes in slides" class="thumb">
+                        <img :src="sidephotoes.image" alt="sidephotoes.title"/>
+                    </div> 
 
                 </div>
 
