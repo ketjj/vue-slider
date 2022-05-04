@@ -40,13 +40,12 @@ const app = new Vue({
             }
         ],
 
-        
         counterPhoto: 0,
-        activeSelect: true
+       
     },
+
+    autoScroll: null,
     
-
-
     methods: {
         nextPhoto(){
             this.counterPhoto++
@@ -59,10 +58,33 @@ const app = new Vue({
             if(this.counterPhoto < 0){
                 this.counterPhoto = this.slides.length - 1;
             }
-        }
-       
-    }
+        },
 
+        // changeSlide(index){
+        //     this.counterPhoto = index
+        // }
+
+        
+        
+        mouseOver(){
+            clearInterval(this.autoScroll);
+            this.autoScroll = null;
+        },
+        
+        mouseOut(){ 
+            this.startAutoScroll();      
+        },
+        
+        startAutoScroll(){
+            this.autoScroll = setInterval(() => {
+                this.nextPhoto();
+            },1000)        
+        }
+    },
+
+    mounted(){
+        this.startAutoScroll();
+    }
 
 });
 
